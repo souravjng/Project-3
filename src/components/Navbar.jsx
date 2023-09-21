@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom'; // Import NavLink
+import { NavLink } from 'react-router-dom';
 import Navbtn from './Navbtn';
 import {IoHomeSharp,IoSettingsOutline,IoMailOutline,IoAppsSharp,} from 'react-icons/io5';
 import { CgProfile } from 'react-icons/cg';
 import { BsFillWalletFill } from 'react-icons/bs';
 import { AiOutlineQuestionCircle } from 'react-icons/ai';
 import { MdRecordVoiceOver } from 'react-icons/md';
-
-
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
+  const theme=useSelector((state)=>state.themes.Themecolor);
+  
   return (
-    <DivContainer>
+    <DivContainer style={{ backgroundColor: theme }} >
       <DivContainer1>
       <div><MdRecordVoiceOver/></div>
       <h1>VoiceBox</h1>
@@ -53,7 +54,6 @@ const StyledNavLink = styled(NavLink)`
 
 const DivContainer = styled.div`
   position: fixed;
-  background-image:linear-gradient(to right, #ff5733, #ffcc29);
   top: 0;
   left: 0;
   width: 3.9%;
@@ -64,7 +64,6 @@ const DivContainer = styled.div`
   transition: background-image 0.3s ease, width 0.3s ease;
 &:hover {
   background-image:none;
-  background-color: #fe5234 ;
   width: 20%;
 }
 `;

@@ -21,7 +21,7 @@ const NavbarBtns = styled.div`
   height: 50px;
   margin: 1px 0px 0px 20px ;
   &:hover{
-    background-color: #dc4227;
+    background-color:  rgb(255 255 255 / 20%);
     color:white;
     cursor: pointer;
   }
