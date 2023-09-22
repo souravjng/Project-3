@@ -3,14 +3,29 @@ import styled from 'styled-components';
 import {setThemeColor} from '../../store/ThemesSlice';
 import { useDispatch,useSelector } from 'react-redux';
 
-const ColorNames = ['#82ce32','#1e88e5','#ffc107','#7e57c2','#00bcd4','#f06292','#9e9d24','#d84315','#9e9e9e','#ba68c8',];
+const ColorNames = [
+  { name: 'Green', color: '#82ce32' },
+  { name: 'Blue', color: '#1e88e5' },
+  { name: 'Yellow', color: '#ffc107' },
+  { name: 'Purple', color: '#7e57c2' },
+  { name: 'Cyan', color: '#00bcd4' },
+  { name: 'Pink', color: '#f06292' },
+  { name: 'Olive', color: '#9e9d24' },
+  { name: 'Red', color: '#d84315' },
+  { name: 'Gray', color: '#9e9e9e' },
+  { name: 'Lavender', color: '#ba68c8' }
+];
+
+
+
+
+
 
 
 const Themes = () => {
-  
-const BtnTheme=useSelector((state)=>state.themes.Buttoncolor);
-const theme=useSelector((state)=>state.themes.Themecolor);
-const [isOpen, setIsOpen] = useState(false);
+  const BtnTheme = useSelector((state) => state.themes.Buttoncolor);
+  const theme = useSelector((state) => state.themes.Themecolor);
+  const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const dispatch = useDispatch();
 
@@ -27,17 +42,17 @@ const [isOpen, setIsOpen] = useState(false);
       </DivContainerleft>
       <DivContainermid></DivContainermid>
       <DivContainerbox>
-        <div style={{ backgroundColor: theme || '#82ce32' }}></div>
+        <div style={{ backgroundColor: selectedOption?.color || theme[0]?.color }}></div> 
       </DivContainerbox>
       <DivContainerright>
         <DropdownContainer>
-          <DropdownButton onClick={() => setIsOpen(!isOpen)} style={{ backgroundColor: BtnTheme }} >
-            {selectedOption || theme}
+          <DropdownButton onClick={() => setIsOpen(!isOpen)} style={{ backgroundColor: BtnTheme[0]?.color }}>
+            {selectedOption?.name || theme[0]?.name}
           </DropdownButton>
           <DropdownList isOpen={isOpen}>
             {ColorNames.map((option, index) => (
               <DropdownListItem key={index} onClick={() => handleOptionClick(option)}>
-                {option}
+                {option.name}
               </DropdownListItem>
             ))}
           </DropdownList>

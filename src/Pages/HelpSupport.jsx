@@ -6,6 +6,16 @@ const HelpSupport = () => {
     <Div1>
     <h1>HelpSupport</h1>
     <DivSuperContainer>
+    <Div2><iframe width="300" height="200" src="https://www.youtube.com/embed/lNMSqxQtO0w?si=tkOxOPWgWx4pG1y2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></Div2>
+    <Div2><iframe width="300" height="200" src="https://www.youtube.com/embed/lNMSqxQtO0w?si=tkOxOPWgWx4pG1y2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></Div2>
+    <Div2><iframe width="300" height="200" src="https://www.youtube.com/embed/lNMSqxQtO0w?si=tkOxOPWgWx4pG1y2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></Div2>
+    <Div2><iframe width="300" height="200" src="https://www.youtube.com/embed/lNMSqxQtO0w?si=tkOxOPWgWx4pG1y2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></Div2>
+    <Div2><iframe width="300" height="200" src="https://www.youtube.com/embed/lNMSqxQtO0w?si=tkOxOPWgWx4pG1y2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></Div2>
+    <Div2><iframe width="300" height="200" src="https://www.youtube.com/embed/lNMSqxQtO0w?si=tkOxOPWgWx4pG1y2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></Div2>
+    <Div2><iframe width="300" height="200" src="https://www.youtube.com/embed/lNMSqxQtO0w?si=tkOxOPWgWx4pG1y2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></Div2>
+    <Div2><iframe width="300" height="200" src="https://www.youtube.com/embed/lNMSqxQtO0w?si=tkOxOPWgWx4pG1y2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></Div2>
+    <Div2><iframe width="300" height="200" src="https://www.youtube.com/embed/lNMSqxQtO0w?si=tkOxOPWgWx4pG1y2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></Div2>
+
     </DivSuperContainer>
     </Div1>
 
@@ -15,10 +25,10 @@ const HelpSupport = () => {
 const Div1 = styled.div`
   margin-left:3.4%;
   margin-top:-8px;
-  border: 1px solid black;
   background-color:#e0e0e0;
   width: 97%;
-  height: 755px;
+  height: auto;
+  padding: 0px 0px 10px 0px;
 h1{
   
   font-family: "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -33,7 +43,21 @@ const DivSuperContainer = styled.div`
   margin: 10px 0px 0px 35px ;
   border-radius:4px;
   width: 95%;
-  height: 650px;`;
+  display: flex;
+  flex-direction:row;
+  overflow:hidden;
+  flex-wrap: wrap;
+  padding: 0px 0px 100px 0px;
+  height: auto;`;
+
+const Div2 = styled.div`
+  margin: 40px 0px 0px 40px ;
+  border: 1px solid #8080808f;
+  border-radius:4px;
+  width: 300px;
+  overflow: hidden;
+  height: 200px;`;
+
 
 
 

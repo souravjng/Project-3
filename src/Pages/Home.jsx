@@ -1,11 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import Form from '../components/Form';
 
 const Home = () => {
   return (
     <Div1>
     <h1>Home</h1>
     <DivSuperContainer>
+    <DivSuperContainerleft>
+
+    </DivSuperContainerleft>
+    <DivSuperContainerright>
+    <Form/>
+    </DivSuperContainerright>
     </DivSuperContainer>
     </Div1>
 
@@ -15,7 +22,6 @@ const Home = () => {
 const Div1 = styled.div`
   margin-left:3.4%;
   margin-top:-8px;
-  border: 1px solid black;
   background-color:#e0e0e0;
   width: 97%;
   height: 755px;
@@ -33,8 +39,28 @@ const DivSuperContainer = styled.div`
   margin: 10px 0px 0px 35px ;
   border-radius:4px;
   width: 95%;
+  display: flex;
+  flex-direction: row;
   height: 650px;`;
 
+
+const DivSuperContainerleft = styled.div`border-right:1px solid #80808061;
+flex:7;
+height: 650px;
+
+
+
+`;
+
+const DivSuperContainerright = styled.div`
+flex:3;
+height: 650px;
+
+
+
+
+
+`;
 
 
 export default Home;

@@ -13,7 +13,7 @@ const Navbar = () => {
   const theme=useSelector((state)=>state.themes.Themecolor);
   
   return (
-    <DivContainer style={{ backgroundColor: theme }} >
+    <DivContainer style={{ backgroundColor: theme[0].color }} >
       <DivContainer1>
       <div><MdRecordVoiceOver/></div>
       <h1>VoiceBox</h1>
@@ -63,7 +63,6 @@ const DivContainer = styled.div`
   flex-direction: column;
   transition: background-image 0.3s ease, width 0.3s ease;
 &:hover {
-  background-image:none;
   width: 20%;
 }
 `;

@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const ThemesSlice = createSlice({
     name: 'themes',
     initialState:{
-        Themecolor:['#82ce32'],
-        Buttoncolor:['#3498db'],
+        Themecolor:[{name: 'Green', color: '#82ce32'}],
+        Buttoncolor:[{name: 'Blue', color: '#1e88e5'}],
     },
     reducers: {
         setThemeColor(state, action) {
@@ -14,6 +14,7 @@ const ThemesSlice = createSlice({
             state.Buttoncolor[0]=action.payload;
         },
     }
+    
 });
 
 export const { setThemeColor,setButtonColor } = ThemesSlice.actions;

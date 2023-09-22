@@ -16,7 +16,6 @@ const Div1 = styled.div`
   margin-left:3.4%;
   z-index: -1;
   margin-top:-8px;
-  border: 1px solid black;
   background-color:#e0e0e0;
   width: 97%;
   height: 755px;

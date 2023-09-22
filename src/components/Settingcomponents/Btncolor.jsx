@@ -3,10 +3,23 @@ import styled from 'styled-components';
 import {setButtonColor} from '../../store/ThemesSlice';
 import { useDispatch,useSelector } from 'react-redux';
 
-const ColorNames = ['#82ce32','#1e88e5','#ffc107','#7e57c2','#00bcd4','#f06292','#9e9d24','#d84315','#9e9e9e','#ba68c8',];
+const ColorNames = [
+  { name: 'Green', color: '#82ce32' },
+  { name: 'Blue', color: '#1e88e5' },
+  { name: 'Yellow', color: '#ffc107' },
+  { name: 'Purple', color: '#7e57c2' },
+  { name: 'Cyan', color: '#00bcd4' },
+  { name: 'Pink', color: '#f06292' },
+  { name: 'Olive', color: '#9e9d24' },
+  { name: 'Red', color: '#d84315' },
+  { name: 'Gray', color: '#9e9e9e' },
+  { name: 'Lavender', color: '#ba68c8' }
+];
 
 
-const Themes = () => {
+
+
+const BtnColor = () => {
 const BtnTheme=useSelector((state)=>state.themes.Buttoncolor);
 const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -25,17 +38,17 @@ const [isOpen, setIsOpen] = useState(false);
       </DivContainerleft>
       <DivContainermid></DivContainermid>
       <DivContainerbox>
-        <div style={{ backgroundColor: BtnTheme || '#82ce32' }}></div>
+        <div style={{ backgroundColor: BtnTheme[0].color }}></div>
       </DivContainerbox>
       <DivContainerright>
         <DropdownContainer>
-          <DropdownButton onClick={() => setIsOpen(!isOpen)} style={{ backgroundColor: BtnTheme }}  >
-            {selectedOption || BtnTheme}
+          <DropdownButton onClick={() => setIsOpen(!isOpen)} style={{ backgroundColor: BtnTheme[0].color  }}  >
+            {selectedOption?.name || BtnTheme[0].name}
           </DropdownButton>
           <DropdownList isOpen={isOpen}>
             {ColorNames.map((option, index) => (
               <DropdownListItem key={index} onClick={() => handleOptionClick(option)}>
-                {option}
+                {option.name}
               </DropdownListItem>
             ))}
           </DropdownList>
@@ -117,6 +130,7 @@ const DropdownButton = styled.button`
 const DropdownList = styled.ul`
   position: absolute;
   top: 100%;
+  z-index: 99;
   width: 139px;
   text-align: center;
   left: 0;
@@ -141,4 +155,4 @@ const DropdownListItem = styled.li`
 `;
 
 
-export default Themes;
+export default BtnColor;
