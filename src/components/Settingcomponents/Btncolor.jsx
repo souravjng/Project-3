@@ -83,11 +83,13 @@ const DivContainerleftname = styled.div`
   color: grey;
   font-family: 'Mona Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 400;
+@media only screen and (max-width: 768px) {font-size: 14px;}
 `;
 
 const DivContainermid = styled.div`
   flex: 6;
   height: 70px;
+ @media only screen and (max-width: 768px) {flex:2;}
 `;
 
 const DivContainerbox = styled.div`
@@ -102,6 +104,10 @@ const DivContainerbox = styled.div`
     margin: auto;
     background-color: #82ce32;
   }
+@media only screen and (max-width: 768px) {
+div{width: 15px;
+  height: 15px;}
+}
 `;
 
 const DivContainerright = styled.div`
@@ -125,6 +131,7 @@ const DropdownButton = styled.button`
   width: 140px;
   border-radius: 4px;
   cursor: pointer;
+  @media only screen and (max-width: 768px) {width:80px;}
 `;
 
 const DropdownList = styled.ul`
@@ -144,6 +151,7 @@ const DropdownList = styled.ul`
   margin: 0;
   list-style: none;
   display: ${(props) => (props.isOpen ? 'block' : 'none')};
+  @media only screen and (max-width: 768px) {width:78px;}
 `;
 
 const DropdownListItem = styled.li`

@@ -11,7 +11,6 @@ import { useSelector } from 'react-redux';
 
 const Navbar = () => {
   const theme=useSelector((state)=>state.themes.Themecolor);
-  
   return (
     <DivContainer style={{ backgroundColor: theme[0].color }} >
       <DivContainer1>
@@ -54,18 +53,20 @@ const StyledNavLink = styled(NavLink)`
 
 const DivContainer = styled.div`
   position: fixed;
+  z-index: 101;
   top: 0;
   left: 0;
-  width: 3.9%;
+  width: 60px;
   height: 100%;
   display: flex;
   overflow:hidden;
   flex-direction: column;
   transition: background-image 0.3s ease, width 0.3s ease;
-&:hover {
-  width: 20%;
-}
-`;
+&:hover {width: 20%;}
+@media only screen and (max-width: 768px) {
+  width: 15%;
+  &:hover {width: 15%;}
+}`;
 
 
 const DivContainer1 = styled.div`
@@ -82,9 +83,6 @@ div{
   width: 40px;
   font-size: 40px;}
 h1{ margin: 20px 0px 0px 20px;font-size: 35px;}
-
-
-
 `;
 
 const DivContainer2 = styled.div`

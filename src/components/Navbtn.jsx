@@ -25,6 +25,9 @@ const NavbarBtns = styled.div`
     color:white;
     cursor: pointer;
   }
+@media only screen and (max-width: 768px) {
+  width: 95%;
+  &:hover{background-color: rgb(255 255 255 / 0%);;}
 `;
 
 const IconDiv = styled.div`
