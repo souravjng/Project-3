@@ -7,6 +7,7 @@ const Message = () => {
     <Div1>
     <h1>Message</h1>
     <DivSuperContainer>
+    <h1>No Messages</h1>
     </DivSuperContainer>
     </Div1>
 
@@ -38,6 +39,15 @@ const DivSuperContainer = styled.div`
   width: 95%;
   overflow: hidden;
   height: 650px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+h1{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 150px;
+  text-align: center;
+  color: #bdbdbd;
+}
 @media only screen and (max-width: 768px) {
   width: 90%;
 }`;

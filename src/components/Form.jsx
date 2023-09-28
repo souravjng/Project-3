@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import Bttn from './Bttn';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required('Title is required'),
@@ -15,6 +16,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const Formcom = () => {
+  const { loginWithRedirect,isAuthenticated } = useAuth0();
   const { longitude, latitude } = useSelector((state) => state.Location.Markers);
   const coordinates = `${longitude}  ${latitude}`;
   const theme = useSelector((state) => state.themes.Themecolor);
@@ -28,7 +30,7 @@ const Formcom = () => {
         <Formik
           initialValues={{title: '',about: '',subject: '',description: '',suggestion: '',image1: null,image2: null,}}
           validationSchema={validationSchema}
-          onSubmit={() => {console.log('Data submit')}}>
+          onSubmit={(values) => {isAuthenticated&&console.log('Data submit : '+values )}}>
           <Form>
             <Fielddiv><Fieldd autoComplete="off" type="text" name="title" id="title" placeholder="Title" /><ErrrorMessage name="title" component="div" className="error" />
             </Fielddiv>
@@ -46,7 +48,7 @@ const Formcom = () => {
             <Fielddiv2 style={{ borderBottom: '1px solid #80808061' }}><Fieldd type="file" name="image2" id="image2" placeholder="Image 2" style={{ border: 'none' }} />
             </Fielddiv2>
 
-            <Bttn text={'Submit'} type="submit" width={'100%'} height={'60px'} font={'21px'} />
+            <div onClick={() => loginWithRedirect()}><Bttn text={'Submit'} type="submit" width={'100%'} height={'60px'} font={'21px'} /></div>
           </Form>
         </Formik>
       </Divbottom>

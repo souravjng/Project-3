@@ -3,13 +3,15 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import Navbtn from './Navbtn';
 import {IoHomeSharp,IoSettingsOutline,IoMailOutline,IoAppsSharp,} from 'react-icons/io5';
-import { CgProfile } from 'react-icons/cg';
+import { BiLogOutCircle } from 'react-icons/bi';
 import { BsFillWalletFill } from 'react-icons/bs';
 import { AiOutlineQuestionCircle } from 'react-icons/ai';
 import { MdRecordVoiceOver } from 'react-icons/md';
 import { useSelector } from 'react-redux';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
+  const { logout,user, isAuthenticated, } = useAuth0();
   const theme=useSelector((state)=>state.themes.Themecolor);
   return (
     <DivContainer style={{ backgroundColor: theme[0].color }} >
@@ -35,12 +37,11 @@ const Navbar = () => {
         </StyledNavLink>
       </DivContainer2>
       <DivContainer3>
-        <StyledNavLink to="/profile" activeClassName="active">
-          <Navbtn text="Profile" icon={<CgProfile />} />
-        </StyledNavLink>
+        { isAuthenticated  && ( <Navbtn data='profile' text={user.name} icon={user.picture} />)}
         <StyledNavLink to="/settings" activeClassName="active">
           <Navbtn text="Settings" icon={<IoSettingsOutline />} />
         </StyledNavLink>
+        {   isAuthenticated  && ( <div onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}><Navbtn text="Logout" icon={<BiLogOutCircle />} /></div>)}
       </DivContainer3>
     </DivContainer>
   );

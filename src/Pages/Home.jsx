@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux';
 import Googlemap from '../components/Map';
 import LocationComponent from '../components/Locationcomponent';
 
-
 const Home = () => {
+  
   const BtnTheme=useSelector((state)=>state.themes.Buttoncolor);
   return (
     <Div1>
