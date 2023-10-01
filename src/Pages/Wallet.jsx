@@ -1,17 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
+import Noticomp from '../components/Noticomp';
+
 
 const Wallet = () => {
-  
   const theme = useSelector((state) => state.themes.Themecolor);
+const NotificationData = useSelector((state) => state.Notification.Submissions);
+
   return (
     <Div1>
     <h1>Wallet</h1>
     <DivSuperContainer>
-    <Divleft><Divheadline style={{ backgroundColor: theme[0].color }}><h1>Total Number of Submissions</h1></Divheadline><Divothers>  </Divothers></Divleft>
-    <Divmid><Divheadline style={{ backgroundColor: theme[0].color }}><h1>Latest Notifications of Rewards</h1></Divheadline><Divothers>  </Divothers></Divmid>
-    <Divright><Divheadline style={{ backgroundColor: theme[0].color }}><h1>Payment Options</h1></Divheadline><Divothers>  </Divothers></Divright>
+    <Divleft><Divheadline style={{ backgroundColor: theme[0].color }}><h1>Total Number of Submissions</h1></Divheadline><Divothers><Count><h1>{NotificationData.length}</h1></Count>{NotificationData.map((curr) =><Noticomp Subject={curr.Subject} />)}</Divothers></Divleft>
+    <Divmid><Divheadline style={{ backgroundColor: theme[0].color }}><h1>Rewards Achieved So Far</h1></Divheadline><Divothers><Count><h1>0</h1></Count> </Divothers></Divmid>                                          
+    <Divright><Divheadline style={{ backgroundColor: theme[0].color }}><h1>Payment Options</h1></Divheadline><Divothers style={{overflow:'hidden',position:'relative'}}><SaveButton>Save</SaveButton> </Divothers></Divright>
 
     </DivSuperContainer>
     </Div1>
@@ -69,6 +72,7 @@ flex-direction:column;
 
 const Divheadline = styled.div`
 height: 60px;
+overflow: hidden;
 display: flex;
 justify-content: center;
 width:100%;
@@ -79,11 +83,38 @@ h1{font-size: 30px; margin:auto;}`;
 
 
 const Divothers = styled.div`
-flex:9;
-border:1px solid grey;`;
+display: flex;
+flex: 9;
+flex-direction: column;
+overflow-y: scroll;
+padding: 0px 0px 10px 0px ;
 
+border:1px solid #80808061;
+`;
 
+const Count = styled.div`
+width: 100%;
+justify-content: center;
+text-align: center;
+border-bottom:1px solid #80808061;
+h1{
+  margin: 0px 0px 0px 0px ;
+  color: grey;
+  font-size: 150px;}`;
 
+const SaveButton = styled.button`
+  background-color: #3498db;
+  color: white;
+  position:absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  border: none;
+  width: 140px;
+  border-radius: 4px;
+  cursor: pointer;
+  @media only screen and (max-width: 768px) {width:80px;}
+`;
 
 
 

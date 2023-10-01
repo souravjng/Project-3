@@ -27,7 +27,7 @@ const MapContainer = ({ google }) => {
   
 
   return (
-    <Map google={google} zoom={14} onGoogleApiLoaded={({ map, maps }) => {renderMarkers(map, maps);}} style={{ width: '970px', height: '648px' }} initialCenter={mapCenter} center={mapCenter} onClick={handleMapClick} >
+    <Map google={google} zoom={14}  onGoogleApiLoaded={({ map, maps }) => {renderMarkers(map, maps);}} style={{ width: '970px', height: '648px' }} initialCenter={mapCenter} center={mapCenter} onClick={handleMapClick} >
       <Marker position={mapCenter} title={'This is your current location'}/>
       <Marker position={Markers} title={'You chose this location'} />
     </Map>
