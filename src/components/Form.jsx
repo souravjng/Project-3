@@ -5,30 +5,51 @@ import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSubmissionNotification } from '../store/NotificationSlice';
 import Bttn from './Bttn';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required('Title is required'),
   about: Yup.string().required('About is required'),
   subject: Yup.string().required('Subject is required'),
   description: Yup.string().required('Description is required'),
-  image1: Yup.mixed().required('Images are required'),
-  image2: Yup.mixed().required('Image 2 is required'),
 });
 
 const Formcom = () => {
+  const [imageURL1, setImageURL1] = useState(null);
+  const [imageURL2, setImageURL2] = useState(null);
+  const { isAuthenticated,loginWithRedirect,user } = useAuth0();
   const dispatch = useDispatch();
   const [newvalue, updatevalue] = useState('');
   const { longitude, latitude } = useSelector((state) => state.Location.Markers);
   const coordinates = `${longitude} ${latitude}`;
-  useEffect(() => {
-    updatevalue(coordinates === "" ? 'Click to choose Location' : coordinates);
-  }, [coordinates]);
+  useEffect(() => {updatevalue(coordinates === " " ? 'Click to choose Location' : coordinates);}, [coordinates]);
+  
   const theme = useSelector((state) => state.themes.Themecolor);
 
-  const postman = (values, { resetForm }) => {
-    dispatch(setSubmissionNotification(values));
-    resetForm();
+  const handleImageUpload = (e, setFieldValue, setImageURL) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setImageURL(event.target.result);
+        setFieldValue('image', event.target.result); 
+      };
+      reader.readAsDataURL(file);
+    }
   };
+
+  const postman = (values) => {
+    // event.preventDefault();
+    if(isAuthenticated){
+    const currentDate = new Date().toLocaleDateString();
+    const updatevalue={...values,date:currentDate,email:user.email,username:user.name,coordinates:newvalue,image1: imageURL1, image2: imageURL2,};
+    dispatch(setSubmissionNotification(updatevalue));
+    alert('submited');
+  } else{loginWithRedirect();}
+  };
+
+
+ 
 
   return (
     <Div1>
@@ -37,9 +58,11 @@ const Formcom = () => {
       </Divtop>
       <Divbottom>
         <Formik
-          initialValues={{ title: '', about: '', subject: '', description: '', suggestion: '', image1: null, image2: null,}}
+          initialValues={{ title: '', about: '', subject: '', description: '', coordinates: '', image1: null, image2: null,}}
           validationSchema={validationSchema}
-          onSubmit={(values, { resetForm }) => {postman(values, { resetForm });}}>
+          onSubmit={(values) => {postman(values);}}>
+
+          {({ setFieldValue }) => (
           <Form>
             <Fielddiv>
               <Fieldd autoComplete="off" type="text" name="title" id="title" placeholder="Title" />
@@ -58,21 +81,19 @@ const Formcom = () => {
               <ErrrorMessage name="description" component="div" className="error" />
             </Fielddiv>
             <Fielddiv>
-              <Fieldd autoComplete="off" type="text" name="coordinates" id="coordinates" value={newvalue} />
+              <Fieldd autoComplete="off" type="text" name="coordinates" id="coordinates" value={newvalue}   />
             </Fielddiv>
 
-            <Fielddiv2 style={{ borderTop: '1px solid #80808061' }}>
-              <Fieldd type="file" name="image1" id="image1" placeholder="Image 1" style={{ border: 'none', marginTop: '20px' }} />
-              <ErrrorMessage name="image1" component="div" className="error" />
-            </Fielddiv2>
-            <Fielddiv2 style={{ borderBottom: '1px solid #80808061' }}>
-              <Fieldd type="file" name="image2" id="image2" placeholder="Image 2" style={{ border: 'none' }} />
-            </Fielddiv2>
+            <Fielddiv2>
+            <input type="file" id='image1' accept="image/*" onChange={(e) =>{handleImageUpload(e, setFieldValue, setImageURL1);document.getElementById('labelimg1').textContent = 'Selected image 1'}}/>
+            <label  id='labelimg1' for='image1'>Upload image 1</label>
 
-            <div>
-              <Bttn text={'Submit'} type="submit" width={'100%'} height={'60px'} font={'21px'} />
-            </div>
-          </Form>
+            <input type="file" id='image2' accept="image/*" onChange={(e) => {handleImageUpload(e, setFieldValue, setImageURL2);document.getElementById('labelimg2').textContent = 'Selected image 2'}}/>
+            <label  id='labelimg2' for='image2'>Upload image 2</label>
+            </Fielddiv2>
+            {isAuthenticated?<Bttn text={'Submit'} type="submit" width={'100%'} height={'60px'} font={'21px'} />:<div onClick={()=>loginWithRedirect()}><Bttn text={'Login'} type='button'  width={'100%'} height={'60px'} font={'21px'} /></div>}
+              
+          </Form>)}
         </Formik>
       </Divbottom>
     </Div1>
@@ -128,7 +149,36 @@ const Fieldd = styled(Field)`
 
 const Fielddiv2 = styled.div`
   margin: 6px 0px 16px 0px;
+  height: 140px;
   width: 100%;
+  overflow: hidden;
+  color:white;
+  position: relative;
+  text-align: center;
+  font-family: "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+input{display:none;}
+#labelimg1{
+position: absolute;
+padding: 15px 10px 5px 10px;
+width:40%;
+border-radius:4px;
+left:17px;
+cursor:pointer;
+top: 16px;
+background:#1e88e5;
+height:30px;}
+
+#labelimg2{
+position: absolute;
+padding: 15px 10px 5px 10px;
+width:40%;
+border-radius:4px;
+left:17px;
+cursor:pointer;
+bottom: 7px;
+background:#1e88e5;
+height:30px;}
 `;
 
 const ErrrorMessage = styled(ErrorMessage)`
