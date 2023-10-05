@@ -216,7 +216,7 @@ attempted value: ${a}
     background-color: ${e=>e.bg};
     opacity: 0.8;
   }
-`,aW=gI().shape({title:ic().required("Title is required"),about:ic().required("About is required"),subject:ic().required("Subject is required"),description:ic().required("Description is required")}),lW=()=>{const[e,t]=L.useState(null),[r,n]=L.useState(null);Cj();const i=zf(),[o,a]=L.useState(""),{longitude:l,latitude:s}=cn(g=>g.Location.Markers),u=`${l} ${s}`;L.useEffect(()=>{a(u===" "?"Click to choose Location":u)},[u]);const f=cn(g=>g.themes.Themecolor),c=(g,y,v)=>{const x=g.target.files[0];if(x){const m=new FileReader;m.onload=h=>{v(h.target.result),y("image",h.target.result)},m.readAsDataURL(x)}},d=g=>{const y=new Date().toLocaleDateString(),v={...g,date:y,email:"demoemail@.com",username:"demousername",coordinates:o,image1:e,image2:r};console.log("u"+JSON.stringify(v)),console.log("v"+JSON.stringify(g)),i(nW(v)),alert("submited")};return M.jsxs(sW,{children:[M.jsx(uW,{style:{backgroundColor:f[0].color},children:M.jsx("h1",{style:{fontSize:"28px",margin:"auto"},children:"Inform Us"})}),M.jsx(cW,{children:M.jsx(cI,{initialValues:{title:"",about:"",subject:"",description:"",coordinates:"",image1:null,image2:null},validationSchema:aW,onSubmit:g=>{d(g)},children:({setFieldValue:g})=>M.jsxs(xw,{children:[M.jsxs(Bu,{children:[M.jsx(Uu,{autoComplete:"off",type:"text",name:"title",id:"title",placeholder:"Title"}),M.jsx(Qd,{name:"title",component:"div",className:"error"})]}),M.jsxs(Bu,{children:[M.jsx(Uu,{autoComplete:"off",type:"text",name:"subject",id:"subject",placeholder:"Subject"}),M.jsx(Qd,{name:"subject",component:"div",className:"error"})]}),M.jsxs(Bu,{children:[M.jsx(Uu,{autoComplete:"off",type:"text",name:"about",id:"about",placeholder:"About"}),M.jsx(Qd,{name:"about",component:"div",className:"error"})]}),M.jsxs(Bu,{children:[M.jsx(Uu,{autoComplete:"off",type:"text",name:"description",id:"description",placeholder:"Description"}),M.jsx(Qd,{name:"description",component:"div",className:"error"})]}),M.jsx(Bu,{children:M.jsx(Uu,{autoComplete:"off",type:"text",name:"coordinates",id:"coordinates",value:o})}),M.jsxs(fW,{children:[M.jsx("input",{type:"file",id:"image1",accept:"image/*",onChange:y=>{c(y,g,t),document.getElementById("labelimg1").textContent="Selected image 1"}}),M.jsx("label",{id:"labelimg1",for:"image1",children:"Upload image 1"}),M.jsx("input",{type:"file",id:"image2",accept:"image/*",onChange:y=>{c(y,g,n),document.getElementById("labelimg2").textContent="Selected image 2"}}),M.jsx("label",{id:"labelimg2",for:"image2",children:"Upload image 2"})]}),M.jsx(CI,{text:"Submit",type:"submit",width:"100%",height:"60px",font:"21px"})]})})})]})},sW=fe.div`
+`,aW=gI().shape({title:ic().required("Title is required"),about:ic().required("About is required"),subject:ic().required("Subject is required"),description:ic().required("Description is required")}),lW=()=>{const[e,t]=L.useState(null),[r,n]=L.useState(null);Cj();const i=zf(),[o,a]=L.useState(""),{longitude:l,latitude:s}=cn(g=>g.Location.Markers),u=`${l} ${s}`;L.useEffect(()=>{a(u===" "?"Click to choose Location":u)},[u]);const f=cn(g=>g.themes.Themecolor),c=(g,y,v)=>{const x=g.target.files[0];if(x){const m=new FileReader;m.onload=h=>{v(h.target.result),y("image",h.target.result)},m.readAsDataURL(x)}},d=g=>{const y=new Date().toLocaleDateString(),v={...g,date:y,email:"TEST@EMAIL.COM",username:"USERNAME",coordinates:o,image1:e,image2:r};i(nW(v)),alert("submited")};return M.jsxs(sW,{children:[M.jsx(uW,{style:{backgroundColor:f[0].color},children:M.jsx("h1",{style:{fontSize:"28px",margin:"auto"},children:"Inform Us"})}),M.jsx(cW,{children:M.jsx(cI,{initialValues:{title:"",about:"",subject:"",description:"",coordinates:"",image1:null,image2:null},validationSchema:aW,onSubmit:g=>{d(g)},children:({setFieldValue:g})=>M.jsxs(xw,{children:[M.jsxs(Bu,{children:[M.jsx(Uu,{autoComplete:"off",type:"text",name:"title",id:"title",placeholder:"Title"}),M.jsx(Qd,{name:"title",component:"div",className:"error"})]}),M.jsxs(Bu,{children:[M.jsx(Uu,{autoComplete:"off",type:"text",name:"subject",id:"subject",placeholder:"Subject"}),M.jsx(Qd,{name:"subject",component:"div",className:"error"})]}),M.jsxs(Bu,{children:[M.jsx(Uu,{autoComplete:"off",type:"text",name:"about",id:"about",placeholder:"About"}),M.jsx(Qd,{name:"about",component:"div",className:"error"})]}),M.jsxs(Bu,{children:[M.jsx(Uu,{autoComplete:"off",type:"text",name:"description",id:"description",placeholder:"Description"}),M.jsx(Qd,{name:"description",component:"div",className:"error"})]}),M.jsx(Bu,{children:M.jsx(Uu,{autoComplete:"off",type:"text",name:"coordinates",id:"coordinates",value:o})}),M.jsxs(fW,{children:[M.jsx("input",{type:"file",id:"image1",accept:"image/*",onChange:y=>{c(y,g,t),document.getElementById("labelimg1").textContent="Selected image 1"}}),M.jsx("label",{id:"labelimg1",for:"image1",children:"Upload image 1"}),M.jsx("input",{type:"file",id:"image2",accept:"image/*",onChange:y=>{c(y,g,n),document.getElementById("labelimg2").textContent="Selected image 2"}}),M.jsx("label",{id:"labelimg2",for:"image2",children:"Upload image 2"})]}),M.jsx(CI,{text:"Submit",type:"submit",width:"100%",height:"60px",font:"21px"})]})})})]})},sW=fe.div`
   position: absolute;
   right: 0;
   border-left: 1px solid #80808061;
@@ -343,6 +343,7 @@ h1{font-size: 30px;
   overflow: hidden;
   height: 650px;
 @media only screen and (max-width: 768px) {
+display: none;
 width: 90%;}`,LW=fe.div`
 flex:7;
 overflow: hidden;
@@ -389,11 +390,14 @@ h1{
   display: flex;
   justify-content: center;
   align-items: center;
+  @media only screen and (max-width: 768px) {height:100vh;}
 h1{
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 150px;
   text-align: center;
   color: #bdbdbd;
+  
+@media only screen and (max-width: 768px) {font-size:30px;}
 }
 @media only screen and (max-width: 768px) {
   width: 90%;
@@ -563,6 +567,7 @@ h1{
   flex-direction: row;
 @media only screen and (max-width: 768px) {
   width: 90%;
+  display: none;
 }`,sH=fe.div`
 flex:1;
 display:flex;
@@ -640,6 +645,7 @@ h1{
   font-weight:400;
   margin: 0px 0px 0px 50px ;
   font-size: 50px;
+  
 }
 @media only screen and (max-width: 768px) {
   h1{font-size: 30px;
@@ -660,9 +666,12 @@ h1{
   font-size: 50px;
   text-align: center;
   color: #bdbdbd;
+  
+@media only screen and (max-width: 768px) {font-size:20px;}
 }
 @media only screen and (max-width: 768px) {
   width: 90%;
+  height: 100vh;
 }`;var II={exports:{}};/*!
 	Copyright (c) 2018 Jed Watson.
 	Licensed under the MIT License (MIT), see
@@ -783,6 +792,7 @@ h1{
   height: 650px;
 @media only screen and (max-width: 768px) {
   width: 90%;
+  display: none;
 }`,kye=fe.div`
 flex:6;
 display: flex;
@@ -1013,4 +1023,6 @@ h1{
   height: 650px;
 @media only screen and (max-width: 768px) {
   width: 90%;
+  height: 100vh;
+  margin-left: 40px;
 }`;function age(){return M.jsx(M.Fragment,{children:M.jsx(SL,{basename:"/Voicebox",children:M.jsx(mL,{children:M.jsxs(En,{path:"/",element:M.jsx($F,{}),children:[M.jsx(En,{index:!0,element:M.jsx(vg,{})}),M.jsx(En,{path:"/home",element:M.jsx(vg,{})}),M.jsx(En,{path:"/Voicebox",element:M.jsx(vg,{})}),M.jsx(En,{path:"/message",element:M.jsx(BW,{})}),M.jsx(En,{path:"/wallet",element:M.jsx(oH,{})}),M.jsx(En,{path:"/dashboard",element:M.jsx(Sye,{})}),M.jsx(En,{path:"/help-support",element:M.jsx(pH,{})}),M.jsx(En,{path:"/settings",element:M.jsx(nge,{})}),M.jsx(En,{path:"*",element:M.jsx(AF,{})})]})})})})}const lge=K7({reducer:{themes:jye,Location:jW,Notification:iW}});k4.createRoot(document.getElementById("root")).render(M.jsx(SF,{domain:"dev-fpzhdqpjnuwgchia.us.auth0.com",clientId:"FEHDjYDrCUOuKBH2UsBJYpMtlQi2oWIt",authorizationParams:{redirect_uri:window.location.origin},children:M.jsx(F8,{store:lge,children:M.jsx(age,{})})}))});export default sge();
