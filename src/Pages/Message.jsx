@@ -42,11 +42,14 @@ const DivSuperContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media only screen and (max-width: 768px) {height:100vh;}
 h1{
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 150px;
   text-align: center;
   color: #bdbdbd;
+  
+@media only screen and (max-width: 768px) {font-size:30px;}
 }
 @media only screen and (max-width: 768px) {
   width: 90%;

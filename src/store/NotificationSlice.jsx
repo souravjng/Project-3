@@ -8,7 +8,7 @@ const NotificationSlice = createSlice({
     initialState:{
     Submissions: [
         {
-            title: 'Garbage collection is irregular.',
+            title: 'Garbage collection is irregular.(CLICK ME)',
             about: 'Random About Info 1',
             subject: 'Random Subject 1',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor eget lectus ac venenatis. Nullam volutpat est ut libero pharetra hendrerit. In hac habitasse platea dictumst. Nulla facilisi. Sed finibus felis sit amet congue. Fusce a aliquam dui, eget ultrices justo. Sed euismod vestibulum ipsum, vel efficitur nisl sagittis sit amet. Sed luctus, purus in volutpat dignissim, mi urna ultricies purus, non condimentum est eros at purus. Nulla a tristique turpis. Phasellus et vehicula turpis, vel volutpat arcu. Sed rhoncus orci auctor tellus bibendum, at varius dolor convallis. Suspendisse potenti. In id sem vel.',
@@ -20,7 +20,7 @@ const NotificationSlice = createSlice({
             username: 'randomusername1'
           },
           {
-            title: 'Roads are filled with potholes.',
+            title: 'Roads are filled with potholes.(CLICK ME)',
             about: 'Random About Info 2',
             subject: 'Random Subject 2',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor eget lectus ac venenatis. Nullam volutpat est ut libero pharetra hendrerit. In hac habitasse platea dictumst. Nulla facilisi. Sed finibus felis sit amet congue. Fusce a aliquam dui, eget ultrices justo. Sed euismod vestibulum ipsum, vel efficitur nisl sagittis sit amet. Sed luctus, purus in volutpat dignissim, mi urna ultricies purus, non condimentum est eros at purus. Nulla a tristique turpis. Phasellus et vehicula turpis, vel volutpat arcu. Sed rhoncus orci auctor tellus bibendum, at varius dolor convallis. Suspendisse potenti. In id sem vel.',

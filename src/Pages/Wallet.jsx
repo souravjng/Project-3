@@ -8,15 +8,16 @@ import { Formik, Form, Field,} from 'formik';
 
 const Wallet = () => {
 const theme = useSelector((state) => state.themes.Themecolor);
+const BtnTheme = useSelector((state) => state.themes.Buttoncolor);
 const NotificationData = useSelector((state) => state.Notification.Submissions);
 const RewardData = useSelector((state) => state.Notification.Reward);
   return (
     <Div1>
     <h1>Wallet</h1>
     <DivSuperContainer>
-    <Divleft><Divheadline style={{ backgroundColor: theme[0].color }}><h1>Total Number of Submissions</h1></Divheadline><Divothers><Count><h1>{NotificationData.length}</h1></Count>{NotificationData.map((curr) =><Noticomp title={curr.title} {...curr} />)}</Divothers></Divleft>
+    <Divleft><Divheadline style={{ backgroundColor: theme[0].color }}><h1>History of Submissions</h1></Divheadline><Divothers><Count><h1>{NotificationData.length}</h1></Count>{NotificationData.map((curr) =><Noticomp title={curr.title} {...curr} />)}</Divothers></Divleft>
     <Divmid><Divheadline style={{ backgroundColor: theme[0].color }}><h1>Rewards Achieved So Far</h1></Divheadline><Divothers><Count><h1>{RewardData.length}</h1></Count>{RewardData.map((curr) =>(<Rewardcomp Subject={curr.Subject} amount={curr.amount} method={curr.method} date={curr.date} />))} </Divothers></Divmid>                                          
-    <Divright><Divheadline style={{ backgroundColor: theme[0].color }}><h1>Payment Options</h1></Divheadline><Divothers style={{ overflow: 'hidden', position: 'relative' }}><Formik initialValues={{ UPI: '' }} onSubmit={(values) => {console.log(values);}}><Form><Fieldd autoComplete="off" type="text" name="UPI" id="UPI" placeholder="Enter your UPI ID Here"/><SaveButton>Save</SaveButton></Form></Formik></Divothers></Divright>
+    <Divright><Divheadline style={{ backgroundColor: theme[0].color }}><h1>Payment Options</h1></Divheadline><Divothers style={{ overflow: 'hidden', position: 'relative' }}><Formik initialValues={{ UPI: '' }} onSubmit={(values) => {console.log(values);}}><Form><Fieldd autoComplete="off" type="text" name="UPI" id="UPI" placeholder="Enter your UPI ID Here"/><SaveButton bg={BtnTheme[0].color}>Save</SaveButton></Form></Formik></Divothers></Divright>
 
     </DivSuperContainer>
     </Div1>
@@ -53,6 +54,7 @@ const DivSuperContainer = styled.div`
   flex-direction: row;
 @media only screen and (max-width: 768px) {
   width: 90%;
+  display: none;
 }`;
 
 
@@ -105,7 +107,7 @@ h1{
   font-size: 150px;}`;
 
 const SaveButton = styled.button`
-  background-color: #3498db;
+  background-color: ${(props) => props.bg};
   color: white;
   position:absolute;
   bottom: 20px;

@@ -1,22 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 const HelpSupport = () => {
   return (
     <Div1>
     <h1>HelpSupport</h1>
     <DivSuperContainer>
-    
-    <Div2><iframe width="300" height="200" src="https://www.youtube.com/embed/lNMSqxQtO0w?si=tkOxOPWgWx4pG1y2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></Div2>
-    <Div2><iframe width="300" height="200" src="https://www.youtube.com/embed/lNMSqxQtO0w?si=tkOxOPWgWx4pG1y2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></Div2>
-    <Div2><iframe width="300" height="200" src="https://www.youtube.com/embed/lNMSqxQtO0w?si=tkOxOPWgWx4pG1y2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></Div2>
-    <Div2><iframe width="300" height="200" src="https://www.youtube.com/embed/lNMSqxQtO0w?si=tkOxOPWgWx4pG1y2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></Div2>
-    <Div2><iframe width="300" height="200" src="https://www.youtube.com/embed/lNMSqxQtO0w?si=tkOxOPWgWx4pG1y2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></Div2>
-    <Div2><iframe width="300" height="200" src="https://www.youtube.com/embed/lNMSqxQtO0w?si=tkOxOPWgWx4pG1y2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></Div2>
-    <Div2><iframe width="300" height="200" src="https://www.youtube.com/embed/lNMSqxQtO0w?si=tkOxOPWgWx4pG1y2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></Div2>
-    <Div2><iframe width="300" height="200" src="https://www.youtube.com/embed/lNMSqxQtO0w?si=tkOxOPWgWx4pG1y2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></Div2>
-    <Div2><iframe width="300" height="200" src="https://www.youtube.com/embed/lNMSqxQtO0w?si=tkOxOPWgWx4pG1y2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></Div2>
-
+    <h1>Contact me at - Souravjangra108@gmail.com</h1>
     </DivSuperContainer>
     </Div1>
 
@@ -35,6 +26,7 @@ h1{
   font-weight:400;
   margin: 0px 0px 0px 50px ;
   font-size: 50px;
+  
 }
 @media only screen and (max-width: 768px) {
   h1{font-size: 30px;
@@ -43,32 +35,26 @@ h1{
 const DivSuperContainer = styled.div`
   border: 1px solid #8080808f;
   background-color:white;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   margin: 10px 0px 0px 35px ;
   border-radius:4px;
   width: 95%;
   overflow: hidden;
-  height: auto;
-  padding-bottom:20px;
+  height: 650px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+h1{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 50px;
+  text-align: center;
+  color: #bdbdbd;
+  
+@media only screen and (max-width: 768px) {font-size:20px;}
+}
 @media only screen and (max-width: 768px) {
   width: 90%;
+  height: 100vh;
 }`;
-
-
-const Div2 = styled.div`
-  margin: 40px 0px 0px 40px ;
-  border: 1px solid #8080808f;
-  border-radius:4px;
-  width: 300px;
-  overflow: hidden;
-  height: 200px;
-  @media only screen and (max-width: 768px) {
-  width: 250px;
-  overflow: hidden;
-  height: 150px;}`;
-
 
 
 

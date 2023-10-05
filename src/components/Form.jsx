@@ -54,7 +54,7 @@ const Formcom = () => {
   return (
     <Div1>
       <Divtop style={{ backgroundColor: theme[0].color }}>
-        <h1>Inform Us</h1>
+        <h1 style={{ fontSize: '28px',margin:'auto'}}  >Inform Us</h1>
       </Divtop>
       <Divbottom>
         <Formik
@@ -117,8 +117,8 @@ const Divtop = styled.div`
   width: 100%;
   text-align: center;
   flex: 1;
-  font-size: 28px;
-  h1 { margin: 17px 0px 0px 0px; font-size: 28px; color: white; }
+  padding: 17px 0px 0px 0px;
+  h1 {color: white; }
 `;
 
 const Divbottom = styled.div`

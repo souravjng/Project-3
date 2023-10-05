@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import Form from '../components/Form';
-import { useSelector } from 'react-redux';
 import Googlemap from '../components/Map';
 import LocationComponent from '../components/Locationcomponent';
 
 const Home = () => {
   
-  const BtnTheme=useSelector((state)=>state.themes.Buttoncolor);
   return (
     <Div1>
     <h1>Home</h1>
@@ -52,6 +50,7 @@ const DivSuperContainer = styled.div`
   overflow: hidden;
   height: 650px;
 @media only screen and (max-width: 768px) {
+display: none;
 width: 90%;}`;
 
 

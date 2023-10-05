@@ -37,7 +37,7 @@ const MapContainer = ({ google }) => {
 
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyBw8Gdvuwa7OWMEcyJCJxBXhvuCV78FaSQ',
+  apiKey: import.meta.env.VITE_REACT_APP_API_KEY,
 })(MapContainer);
 
 
