@@ -32,6 +32,7 @@ img{
   border-radius: 333px;
 }
 @media only screen and (max-width: 768px) {
+  padding-bottom: 10px;
   width: 95%;
   &:hover{background-color: rgb(255 255 255 / 0%);}}
 `;
@@ -43,6 +44,9 @@ const IconDiv = styled.div`
   align-items: center; 
   font-size: 25px;
   margin: 0px 0px 0px 0px;
+  @media only screen and (max-width: 768px) {
+    font-size: 19px;
+  }
 `;
 
 const IconDivv = styled.div`
@@ -65,6 +69,7 @@ const HeadlineDiv = styled.div`
 
 h1{font-size:16px;
     font-family: "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight:400;}`;
+    font-weight:400;
+    }`;
 
 export default Navbtn;

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import axios from 'axios';
 
 
 
@@ -62,10 +62,7 @@ const NotificationSlice = createSlice({
         setSubmissionNotification(state, action) {
             const { title,about,subject,description,image1,image2,coordinates,date,email,username } = action.payload;
             state.Submissions = [ { title:title,about:about,subject:subject,description:description,image1:image1,image2:image2,location:coordinates,date:date,email:email,username:username  },...state.Submissions,];
-           
-
-
-        },
+                   },
         setRewardNotification(state, action) {
             const { name, date, id } = action.payload;
             state.Reward = { name, date, amount,method };
@@ -80,3 +77,12 @@ const NotificationSlice = createSlice({
 export const { setSubmissionNotification,setRewardNotification,setPaymentNotification } = NotificationSlice.actions;
 
 export default NotificationSlice.reducer;
+
+export const uploadnewcomplaint = (Alldata) => async (dispatch) => {
+  try {
+        await axios.post('https://6576bdcf424e2adad5b49459.mockapi.io/Complains', Alldata);
+     
+  } catch (error) {
+      console.error('Error posting data to MockAPI:', error);
+  }
+};

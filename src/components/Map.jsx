@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import { useDispatch, useSelector } from 'react-redux';
 import {setMarkersfun} from '../store/locationSlice';
+import styled from 'styled-components';
 
 
 
@@ -27,7 +28,7 @@ const MapContainer = ({ google }) => {
   
 
   return (
-    <Map google={google} zoom={14}  onGoogleApiLoaded={({ map, maps }) => {renderMarkers(map, maps);}} style={{ width: '970px', height: '648px' }} initialCenter={mapCenter} center={mapCenter} onClick={handleMapClick} >
+    <Map google={google} zoom={14}  onGoogleApiLoaded={({ map, maps }) => {renderMarkers(map, maps);}} style={{ }} initialCenter={mapCenter} center={mapCenter} onClick={handleMapClick} >
       <Marker position={mapCenter} title={'This is your current location'}/>
       <Marker position={Markers} title={'You chose this location'} />
     </Map>
@@ -37,7 +38,16 @@ const MapContainer = ({ google }) => {
 
 
 export default GoogleApiWrapper({
-  apiKey: import.meta.env.VITE_REACT_APP_API_KEY,
+  apiKey: 'AIzaSyBw8Gdvuwa7OWMEcyJCJxBXhvuCV78FaSQ',
 })(MapContainer);
 
 
+
+const MAPP = styled(Map)`
+  width: 970px;
+  height: 648px;
+  @media only screen and (max-width: 768px) {
+    height: 900px;
+    width: 100%;
+  }
+`;

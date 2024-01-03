@@ -29,6 +29,8 @@ h1{
   
 }
 @media only screen and (max-width: 768px) {
+  margin: -10px 0px 0px -45px;
+  width: 118%;
   h1{font-size: 30px;
      margin: 20px 0px 0px 50px ;}}
 `;
@@ -49,7 +51,7 @@ h1{
   text-align: center;
   color: #bdbdbd;
   
-@media only screen and (max-width: 768px) {font-size:20px;}
+@media only screen and (max-width: 768px) {margin:-350px 0px 0px -20px; font-size:25px;}
 }
 @media only screen and (max-width: 768px) {
   width: 90%;

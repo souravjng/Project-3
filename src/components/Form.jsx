@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
-import { setSubmissionNotification } from '../store/NotificationSlice';
+import { setSubmissionNotification,uploadnewcomplaint } from '../store/NotificationSlice';
 import Bttn from './Bttn';
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -21,8 +21,13 @@ const Formcom = () => {
   const dispatch = useDispatch();
   const [newvalue, updatevalue] = useState('');
   const { longitude, latitude } = useSelector((state) => state.Location.Markers);
+  const Checker = useSelector((state) => state.Location.Checker);
   const coordinates = `${longitude} ${latitude}`;
   useEffect(() => {updatevalue(coordinates === " " ? 'Click to choose Location' : coordinates);}, [coordinates]);
+
+  if(Checker===true){
+    document.getElementById('maindiv').style.display = "block";
+  }
   
   const theme = useSelector((state) => state.themes.Themecolor);
 
@@ -44,6 +49,7 @@ const Formcom = () => {
     const currentDate = new Date().toLocaleDateString();
     const updatevalue={...values,date:currentDate,email:user.email,username:user.name,coordinates:newvalue,image1: imageURL1, image2: imageURL2,};
     dispatch(setSubmissionNotification(updatevalue));
+    dispatch(uploadnewcomplaint(updatevalue));
     alert('submited');
   } else{loginWithRedirect();}
   };
@@ -52,7 +58,7 @@ const Formcom = () => {
  
 
   return (
-    <Div1>
+    <Div1 id='maindiv'>
       <Divtop style={{ backgroundColor: theme[0].color }}>
         <h1 style={{ fontSize: '28px',margin:'auto'}}  >Inform Us</h1>
       </Divtop>
@@ -110,7 +116,13 @@ const Div1 = styled.div`
   flex-direction: column;
   background: white;
   overflow: hidden;
-  @media only screen and (max-width: 768px) { display: none; }
+  @media only screen and (max-width: 768px) { 
+    display: none;
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    position: fixed;
+    height: 100%;
+   }
 `;
 
 const Divtop = styled.div`
@@ -119,6 +131,10 @@ const Divtop = styled.div`
   flex: 1;
   padding: 17px 0px 0px 0px;
   h1 {color: white; }
+  @media only screen and (max-width: 768px) { 
+    height: 50px;
+    margin-bottom: 30px;
+  }
 `;
 
 const Divbottom = styled.div`

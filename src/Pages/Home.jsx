@@ -35,6 +35,9 @@ h1{
   margin: 0px 0px 0px 50px ;
   font-size: 50px;}
 @media only screen and (max-width: 768px) {
+  margin: 60px 0px 0px -8px;
+  overflow: hidden;
+  width: 104%;
 h1{font-size: 30px;
      margin: 20px 0px 0px 50px ;}}
 `;
@@ -50,14 +53,16 @@ const DivSuperContainer = styled.div`
   overflow: hidden;
   height: 650px;
 @media only screen and (max-width: 768px) {
-display: none;
-width: 90%;}`;
+margin: -55px 0px 0px 0px ;
+height: 100vh;
+width: 100%;}`;
 
 
 const DivSuperContainerleft = styled.div`
 flex:7;
 overflow: hidden;
-height: 648px;`;
+height: 648px;
+`;
 
 const Buttondiv = styled.button`
 padding: 0px 0px 0px 0px;
@@ -67,16 +72,15 @@ border: none;
 position: absolute;
 left: 10px;
 bottom: 10px;
+@media only screen and (max-width: 768px) { 
+  position: fixed;
+  margin-bottom: 30px;
+}
 `;
 
 const DivSuperContainerright = styled.div`
 flex:3;
 height: 650px;
-
-
-
-
-
 `;
 
 

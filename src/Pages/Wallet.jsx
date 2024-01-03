@@ -39,11 +39,12 @@ h1{
   font-size: 50px;
 }
 @media only screen and (max-width: 768px) {
+  margin: -5px 0px 0px -45px;
+  width: 117%;
   h1{font-size: 30px;
      margin: 20px 0px 0px 50px ;}}
 `;
 const DivSuperContainer = styled.div`
-  border: 1px solid #8080808f;
   background-color:white;
   margin: 10px 0px 0px 35px ;
   border-radius:4px;
@@ -54,7 +55,8 @@ const DivSuperContainer = styled.div`
   flex-direction: row;
 @media only screen and (max-width: 768px) {
   width: 90%;
-  display: none;
+  flex-direction: column;
+  height: auto;
 }`;
 
 
@@ -62,19 +64,23 @@ const Divleft = styled.div`
 flex:1;
 display:flex;
 flex-direction:column;
+@media only screen and (max-width: 768px) {height:auto;}
 `;
 const Divmid = styled.div`
 flex:1;
 display:flex;
 flex-direction:column;
+@media only screen and (max-width: 768px) {height:auto;}
 `;
 const Divright = styled.div`
 flex:1;
 display:flex;
 flex-direction:column;
+@media only screen and (max-width: 768px) {height:500px;flex:none;}
 `;
 
 const Divheadline = styled.div`
+color: white;
 height: 60px;
 overflow: hidden;
 display: flex;
@@ -82,7 +88,8 @@ justify-content: center;
 width:100%;
 text-align: center;
 flex:1;
-border:1px solid black;
+border-left:1px solid grey;
+@media only screen and (max-width: 768px) {margin:10px 0px 10px 0px ; padding:20px 0px 20px 0px;}
 h1{font-size: 30px; margin:auto;}`;
 
 
@@ -92,8 +99,9 @@ flex: 9;
 flex-direction: column;
 overflow-y: scroll;
 padding: 0px 0px 10px 0px ;
-
-border:1px solid #80808061;
+@media only screen and (max-width: 768px) {
+  height: auto;
+}
 `;
 
 const Count = styled.div`

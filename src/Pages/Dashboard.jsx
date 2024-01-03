@@ -44,6 +44,8 @@ h1{
   font-size: 50px;
 }
 @media only screen and (max-width: 768px) {
+  margin: -10px 0px 0px -45px;
+  width: 118%;
   h1{font-size: 30px;
      margin: 20px 0px 0px 50px ;}}
 `;
@@ -59,7 +61,7 @@ const DivSuperContainer = styled.div`
   height: 650px;
 @media only screen and (max-width: 768px) {
   width: 90%;
-  display: none;
+  height: 1650px;
 }`;
 const DivSuperContainerleft = styled.div`
 flex:6;
@@ -68,14 +70,18 @@ flex-direction: column;
 padding: 5px 0px 5px 5px;
 border-radius:4px;
 overflow: hidden;
-height: 640px;`;
+height: 640px;
+@media only screen and (max-width: 768px) {
+  height: auto;
+}`;
 
 const DivSuperContainerright = styled.div`
 flex:4;
 border-radius:4px;
 padding: 5px 5px 5px 5px;
 overflow: hidden;
-height: 635px;`;
+height: 635px;
+@media only screen and (max-width: 768px) {display:none}`;
 
 
 
@@ -85,7 +91,8 @@ const Divtop = styled.div`
   border-radius:4px;
   width: 100%;
   overflow: hidden;
-  flex:6;`;
+  flex:6;
+  @media only screen and (max-width: 768px) {flex:3;}`;
 
   const Divbottom = styled.div`
   background-image: linear-gradient(80deg, #e0c3fc 0%, #8ec5fc 100%);
@@ -96,10 +103,20 @@ const Divtop = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
+  @media only screen and (max-width: 768px) {
+    flex:7;
+    flex-direction: column-reverse;
+
+}
   div{
     flex: 1;
     width: 100px;
     border: 1px solid white;
+    @media only screen and (max-width: 768px) {
+    height: 400px;
+    width: 100%;
+
+}
 
   }`;
 
